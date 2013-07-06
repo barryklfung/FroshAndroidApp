@@ -23,15 +23,15 @@ public class MainActivity extends Activity {
 		getActionBar().setDisplayShowTitleEnabled(false);
 		return true;
 	}
-	
+
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equals("schedule")){
 			// Point to Schedule
-			}
+		}
 		else if (id.equals("map")){
 			// Point to Map
 		}
-		}
 	}
+}
 
