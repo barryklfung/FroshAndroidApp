@@ -4,5 +4,6 @@
     <string name="app_name">Frosh Application</string>
     <string name="schedule">Schedule</string>
     <string name="map">Map</string>
+    <string name="title_activity_map">Map Activity</string>
 
 </resources>
