@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -27,11 +28,12 @@ public class MainActivity extends Activity {
 
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
-		if (id.equals("schedule")){
+		if (id.equalsIgnoreCase("Schedule")){
 			// Point to Schedule
 		}
-		else if (id.equals("map")){
-			// Point to Map
+		else if (id.equalsIgnoreCase("Map")){
+			Intent intent = new Intent (this, MapActivity.class);
+			startActivity(intent);
 		}
 	}
 }
