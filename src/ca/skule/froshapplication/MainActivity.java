@@ -33,6 +33,12 @@ public class MainActivity extends Activity {
 		else if (id.equalsIgnoreCase("Map")){
 			Intent intent = new Intent (this, MapActivity.class);
 			startActivity(intent);
+			if (id.equalsIgnoreCase("schedule")){
+				// Point to Schedule
+				}
+			else if (id.equalsIgnoreCase("map")){
+				// Point to Map
+			}
 		}
 	}
 }
