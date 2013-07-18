@@ -4,7 +4,6 @@ import ca.skule.froshapplication.PanAndZoomListener;
 import ca.skule.froshapplication.PanAndZoomListener.Anchor;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -51,18 +50,10 @@ public class MapActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("schedule")){
-			Intent intent = new Intent (this, MainActivity.class);
-			startActivity(intent);
 			// Point to Schedule
 		}
 		else if (id.equalsIgnoreCase("map")){
 			// Point to Map
 		}
-		else if (id.equalsIgnoreCase("list")){
-			// Point to Building List Activity
-			Intent intent = new Intent (this,ListActivity.class);
-			startActivity(intent);
-		}
 	}
 }
-

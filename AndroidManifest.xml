@@ -25,10 +25,6 @@
             android:name="ca.skule.froshapplication.MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
-        <activity
-            android:name="ca.skule.froshapplication.ListActivity"
-            android:label="@string/title_activity_list" >
-        </activity>
     </application>
 
 </manifest>
