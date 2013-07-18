@@ -3,18 +3,17 @@ package ca.skule.froshapplication;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.util.Log;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-//import java.util.HashMap;
-//import java.util.ArrayList;
+import java.util.HashMap;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class ListsActivity extends ListActivity {
+	// Array of all locations used in this application
 	static String[] NameList = new String[] {
 		"Bahen Institute of Technology",
 		"Convocation Hall",
@@ -27,19 +26,21 @@ public class ListsActivity extends ListActivity {
 		"Sandford Fleming Building",
 		"Wallberg Buildling"	
 	};
-/*	static ArrayList<String> CodeList = new ArrayList<String>();
+	// HashMap, with keys as location names, and objects as location codes
+	static HashMap<String,String> CodeMap = new HashMap<String,String>();
 	{
-		CodeList.add("BA");
-		CodeList.add("CH");
-		CodeList.add("EA");
-		CodeList.add("FC");
-		CodeList.add("GB");
-		CodeList.add("MB");
-		CodeList.add("MC");
-		CodeList.add("QP");
-		CodeList.add("SF");
-		CodeList.add("WB");
+		CodeMap.put("Bahen Institute of Technology","BA");
+		CodeMap.put("Convocation Hall","CH");
+		CodeMap.put("Engineering Annex","EA");
+		CodeMap.put("Front Campus","FC");
+		CodeMap.put("Galbraith Building","GB");
+		CodeMap.put("Lassonde Mining Building","MB");
+		CodeMap.put("Mechanical Engineering Building","MC");
+		CodeMap.put("Queen's Park","QP");
+		CodeMap.put("Sandford Fleming Building","SF");
+		CodeMap.put("Wallberg Buildling","WB");
 	}
+	// Hashmap with keys as location codes, and objects as coordinates in "x,y" format
 	static HashMap<String,String> CoMap = new HashMap<String,String>();
 	{
 		CoMap.put("BA", "325,1040");
@@ -52,33 +53,46 @@ public class ListsActivity extends ListActivity {
 		CoMap.put("QP", "957,635");
 		CoMap.put("SF", "618,1048");
 		CoMap.put("WB", "530,1163");	
-	}*/
+	}
 private ListView lists;
-private static final String TAG = "ListsActivity";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		final ListView lists = getListView();
+		//Setting the OnClick
 		lists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 		    @Override
 		    public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
 		        onListItemClick(v,pos,id);
 		    }
 		    protected void onListItemClick(View v, int pos, long id) {
-		    	AlertDialog.Builder adb = new AlertDialog.Builder(
+		    	//Listener Testing
+		    	/*AlertDialog.Builder adb = new AlertDialog.Builder(
 		    			ListsActivity.this);
 		    			adb.setTitle("ListView OnClick");
 		    			adb.setMessage("Selected Item is = "
 		    			+ lists.getItemAtPosition(pos));
 		    			adb.setPositiveButton("Ok", null);
-		    			adb.show();  
+		    			adb.show();*/
+		    	//Sending Coordinate Data.
+		    	Intent intent = new Intent (v.getContext(), MapActivity.class);
+				intent.putExtra("Co-ordinates", ListsActivity.CoMap.get(ListsActivity.CodeMap.get(lists.getItemAtPosition(pos))));
+				//Testing Intent content
+				/*AlertDialog.Builder adb = new AlertDialog.Builder(
+		    			ListsActivity.this);
+		    			adb.setTitle("ListView OnClick");
+		    			adb.setMessage("Selected Item is = "
+		    			+ intent.getStringExtra("Co-ordinates"));
+		    			adb.setPositiveButton("Ok", null);
+		    			adb.show();*/
+				startActivity(intent);
 		    }
 		});
 		
-		
+		//Setting up the actual ListView
 		ListAdapter adapter = createAdapter();
-		setListAdapter(adapter);
+		lists.setAdapter(adapter);
 		
 	}
 
