@@ -1,27 +1,33 @@
 package ca.skule.froshapplication;
 
 import android.os.Bundle;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.util.Log;
 import android.view.Menu;
-import java.util.HashMap;
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+//import java.util.HashMap;
+//import java.util.ArrayList;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class ListsActivity extends ListActivity {
-	static ArrayList<String> NameList = new ArrayList<String>();
-	{
-		NameList.add("Bahen Institute of Technology");
-		NameList.add("Convocation Hall");
-		NameList.add("Engineering Annex");
-		NameList.add("Front Campus");
-		NameList.add("Galbraith Building");
-		NameList.add("Lassonde Mining Building");
-		NameList.add("Mechanical Engineering Building");
-		NameList.add("Queen's Park");
-		NameList.add("Sandford Fleming Building");
-		NameList.add("Wallberg Buildling");	
-	}
-	static ArrayList<String> CodeList = new ArrayList<String>();
+	static String[] NameList = new String[] {
+		"Bahen Institute of Technology",
+		"Convocation Hall",
+		"Engineering Annex",
+		"Front Campus",
+		"Galbraith Building",
+		"Lassonde Mining Building",
+		"Mechanical Engineering Building",
+		"Queen's Park",
+		"Sandford Fleming Building",
+		"Wallberg Buildling"	
+	};
+/*	static ArrayList<String> CodeList = new ArrayList<String>();
 	{
 		CodeList.add("BA");
 		CodeList.add("CH");
@@ -46,14 +52,34 @@ public class ListsActivity extends ListActivity {
 		CoMap.put("QP", "957,635");
 		CoMap.put("SF", "618,1048");
 		CoMap.put("WB", "530,1163");	
-	}
+	}*/
+private ListView lists;
+private static final String TAG = "ListsActivity";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_list);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.id.text1,NameList);
+		final ListView lists = getListView();
+		lists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		    @Override
+		    public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
+		        onListItemClick(v,pos,id);
+		    }
+		    protected void onListItemClick(View v, int pos, long id) {
+		    	AlertDialog.Builder adb = new AlertDialog.Builder(
+		    			ListsActivity.this);
+		    			adb.setTitle("ListView OnClick");
+		    			adb.setMessage("Selected Item is = "
+		    			+ lists.getItemAtPosition(pos));
+		    			adb.setPositiveButton("Ok", null);
+		    			adb.show();  
+		    }
+		});
+		
+		
+		ListAdapter adapter = createAdapter();
 		setListAdapter(adapter);
+		
 	}
 
 	@Override
@@ -61,7 +87,12 @@ public class ListsActivity extends ListActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.list, menu);
 		return true;
+	}	
+	protected ListAdapter createAdapter()
+	{
+	ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,NameList);
+	return adapter;
 	}
 
-
+	
 }
