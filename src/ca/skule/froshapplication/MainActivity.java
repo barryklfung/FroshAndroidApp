@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
 		}
 		else if (id.equalsIgnoreCase("list")){
 			// Point to Building List Activity
-			Intent intent = new Intent (this,ListActivity.class);
+			Intent intent = new Intent (this,ListsActivity.class);
 			startActivity(intent);
 		}
 	}

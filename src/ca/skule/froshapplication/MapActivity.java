@@ -29,18 +29,15 @@ public class MapActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("schedule")){
-			Intent intent = new Intent (this, MainActivity.class);
-			startActivity(intent);
 			// Point to Schedule
 		}
 		else if (id.equalsIgnoreCase("map")){
 			// Point to Map
 		}
-		else if (id.equalsIgnoreCase("list")){
+		else if (id.equalsIgnoreCase("locations")){
 			// Point to Building List Activity
-			Intent intent = new Intent (this,ListActivity.class);
+			Intent intent = new Intent (this,ListsActivity.class);
 			startActivity(intent);
 		}
 	}
 }
-
