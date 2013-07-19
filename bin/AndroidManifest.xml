@@ -29,6 +29,7 @@
             android:name="ca.skule.froshapplication.ListsActivity"
             android:label="@string/title_activity_list" >
         </activity>
-    </application>
+        
+        </application>
 
 </manifest>
