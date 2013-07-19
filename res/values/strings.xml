@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
@@ -12,3 +13,15 @@
     <string name="title_activity_event_list">EventListActivity</string>
 
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Frosh Application</string>
+    <string name="schedule">Schedule</string>
+    <string name="map">Map</string>
+    <string name="title_activity_map">Map</string>
+    <string name="list">Locations</string>
+    <string name="title_activity_list">Locations</string>
+    <string name="no_data">No data</string>
+</resources>
+>>>>>>> 38eaaa7d467ea52c65dcd28627ccc3a62c86f305
