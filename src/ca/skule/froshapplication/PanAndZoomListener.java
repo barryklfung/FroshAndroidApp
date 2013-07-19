@@ -5,7 +5,6 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.FloatMath;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -94,7 +93,7 @@ public class PanAndZoomListener implements OnTouchListener {
 
 		float x = event.getX(0) - event.getX(1);
 		float y = event.getY(0) - event.getY(1);
-		return FloatMath.sqrt(x * x + y * y);
+		return (float) Math.sqrt(x * x + y * y);
 	}
 
 	// Calculate the mid point of the first two fingers
@@ -122,7 +121,7 @@ public class PanAndZoomListener implements OnTouchListener {
 		PanZoomCalculator(View container, View child, int anchor) {
 			// Initialize class fields
 			currentPan = new PointF(0, 0);
-			currentZoom = 1f;;
+			currentZoom = 4f;
 			this.window = container;
 			this.child = child;
 			matrix = new Matrix();
@@ -197,16 +196,21 @@ public class PanAndZoomListener implements OnTouchListener {
 			float bmWidth = 1452;
 			float bmHeight = 1284;
 
-			if (child instanceof ImageView)
+
+			if (child instanceof ImageView && ((ImageView) child).getScaleType()== ImageView.ScaleType.MATRIX)
 			{
 				ImageView view = (ImageView) child;
 				Drawable drawable = view.getDrawable();
-				Bitmap bm = ((BitmapDrawable) drawable).getBitmap();
-				if (bm != null) {
-					bmWidth = bm.getWidth();
-					bmHeight = bm.getHeight();
+				if (drawable != null) {
+					Bitmap bm = ((BitmapDrawable) drawable).getBitmap();
+					if (bm != null) {
+						bmWidth = bm.getWidth();
+						bmHeight = bm.getHeight();
+					}
 				}
 			}
+			float temp=(Math.max(winWidth / bmWidth, winHeight / bmHeight))/(Math.min(winWidth / bmWidth, winHeight / bmHeight));
+			Log.d("Minimum Zoom: ", temp+"");
 			return (Math.max(winWidth / bmWidth, winHeight / bmHeight))/(Math.min(winWidth / bmWidth, winHeight / bmHeight));
 		}
 
@@ -240,6 +244,8 @@ public class PanAndZoomListener implements OnTouchListener {
 
 				float maxPanX = (currentZoom - 1f) * window.getWidth();
 				float maxPanY = (currentZoom - 1f) * window.getHeight();
+				Log.d("maxPanX", maxPanX+"");
+				Log.d("maxPanY", maxPanY+"");
 				currentPan.x = Math.max(-maxPanX, Math.min(0, currentPan.x));
 				currentPan.y = Math.max(-maxPanY, Math.min(0, currentPan.y));
 			}
@@ -262,19 +268,21 @@ public class PanAndZoomListener implements OnTouchListener {
 						matrix.reset();
 						matrix.postScale(currentZoom * fitToWindow, currentZoom * fitToWindow);
 						matrix.postTranslate(currentPan.x + xOffset, currentPan.y + yOffset);
+						Log.d("CurrentPan.x:",currentPan.x+"");
+						Log.d("CurrentPan.y:",currentPan.y+"");
 						((ImageView) child).setImageMatrix(matrix);
 					}
 				}
 			} else {
-				/*        MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
+				MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
 
-        lp.leftMargin = (int) currentPan.x + panJitter;
-        lp.topMargin = (int) currentPan.y;
-        lp.width = (int) (window.getWidth() * currentZoom);
-        lp.height = (int) (window.getHeight() * currentZoom);
-        panJitter ^= 1;
+				lp.leftMargin = (int) currentPan.x + panJitter;
+				lp.topMargin = (int) currentPan.y;
+				lp.width = (int) (window.getWidth() * currentZoom);
+				lp.height = (int) (window.getHeight() * currentZoom);
+				panJitter ^= 1;
 
-        child.setLayoutParams(lp);*/
+				child.setLayoutParams(lp);
 			}
 		}
 
