@@ -26,10 +26,16 @@
             android:label="@string/title_activity_map" >
         </activity>
         <activity
-            android:name="ca.skule.froshapplication.ListsActivity"
-            android:label="@string/title_activity_list" >
+            android:name="ca.skule.froshapplication.DayListActivity"
+            android:label="@string/title_activity_day_list" >
         </activity>
-        
-        </application>
-
+        <activity
+            android:name="ca.skule.froshapplication.DisplayEventActivity"
+            android:label="@string/title_activity_display_event" >
+        </activity>
+        <activity
+            android:name="ca.skule.froshapplication.EventListActivity"
+            android:label="@string/title_activity_event_list" >
+        </activity>
+    </application>
 </manifest>

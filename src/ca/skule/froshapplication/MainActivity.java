@@ -28,10 +28,16 @@ public class MainActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			// Point to Schedule
+			Intent intent = new Intent (this, DayListActivity.class);
+			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){
 			Intent intent = new Intent (this, MapActivity.class);
+			startActivity(intent);
+		}
+		else if (id.equalsIgnoreCase("list")){
+			// Point to Building List Activity
+			Intent intent = new Intent (this,ListsActivity.class);
 			startActivity(intent);
 		}
 	}
