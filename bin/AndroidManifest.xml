@@ -33,6 +33,10 @@
             android:name="ca.skule.froshapplication.DisplayEventActivity"
             android:label="@string/title_activity_display_event" >
         </activity>
+        <activity
+            android:name="ca.skule.froshapplication.EventListActivity"
+            android:label="@string/title_activity_event_list" >
+        </activity>
     </application>
 
 </manifest>
