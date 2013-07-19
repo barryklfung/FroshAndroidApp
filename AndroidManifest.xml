@@ -25,10 +25,13 @@
             android:name="ca.skule.froshapplication.MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
+<<<<<<< HEAD
         <activity
             android:name="ca.skule.froshapplication.ListsActivity"
             android:label="@string/title_activity_list" >
         </activity>
+=======
+>>>>>>> 88a96dc83f8727f614f1b61d9a9fe962c97e5847
     </application>
 
 </manifest>

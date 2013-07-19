@@ -10,10 +10,5 @@
           android:title="@string/map"
           android:showAsAction="ifRoom|withText"
           android:onClick="onMenuClick" />
-     
-     <item android:id="@+id/list"
-          android:title="@string/list"
-          android:showAsAction="never"
-          android:onClick="onMenuClick" />
 
 </menu>

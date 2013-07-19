@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">F!rosh Week 1T3</string>
+    <string name="app_name">Frosh Application</string>
     <string name="schedule">Schedule</string>
     <string name="map">Map</string>
+<<<<<<< HEAD
     <string name="title_activity_map">Map</string>
     <string name="list">Locations</string>
     <string name="title_activity_list">Locations</string>
     <string name="no_data">No data</string>
+=======
+    <string name="title_activity_map">Map Activity</string>
+>>>>>>> 88a96dc83f8727f614f1b61d9a9fe962c97e5847
 
 </resources>
