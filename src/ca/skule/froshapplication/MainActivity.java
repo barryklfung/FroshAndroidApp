@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 package ca.skule.froshapplication;
 
 import android.os.Build;
@@ -38,8 +38,9 @@ public class MainActivity extends Activity {
 		}
 	}
 }
+*/
 
-=======
+//=======
 package ca.skule.froshapplication;
 
 import android.os.Build;
@@ -70,7 +71,8 @@ public class MainActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			// Point to Schedule
+			Intent intent = new Intent (this, DayListActivity.class);
+			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){
 			Intent intent = new Intent (this, MapActivity.class);
@@ -84,4 +86,4 @@ public class MainActivity extends Activity {
 	}
 }
 
->>>>>>> 38eaaa7d467ea52c65dcd28627ccc3a62c86f305
+//>>>>>>> 38eaaa7d467ea52c65dcd28627ccc3a62c86f305
