@@ -3,6 +3,7 @@ package ca.skule.froshapplication;
 import android.os.Parcelable;
 import android.os.Parcel;
 
+
 public class Location implements Parcelable {
 	private int coordX=0;
 	private int coordY=0;
