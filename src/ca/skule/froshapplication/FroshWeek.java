@@ -1,3 +1,5 @@
+package ca.skule.froshapplication;
+
 import java.util.List;
 
 

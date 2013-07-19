@@ -1,3 +1,4 @@
+package ca.skule.froshapplication;
 
 public class Event {
 	private String name;
