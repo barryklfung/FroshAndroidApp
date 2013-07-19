@@ -1,21 +1,34 @@
 package ca.skule.froshapplication;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.GregorianCalendar;
+
+
 
 
 
 public class Day {
 
-	private List events;
+	private List<Event> events;
 	private String name;
+	private GregorianCalendar date;
 	
-	public Day()
+	public Day(String dayName, GregorianCalendar date)
 	{
-		
+		events=new ArrayList<Event> ();
+		this.name = dayName;
+		this.date = date;
 	}
 	
-	public Day(String name)
+	public void setDay(String dayName)
 	{
-		this.name = name;
+		name = dayName;
+	}
+	
+	public String getDay()
+	{
+		return name;
 	}
 	
 	public void addEvent(Event toAdd)
@@ -23,8 +36,14 @@ public class Day {
 		this.events.add(toAdd);
 	}
 	
-	public List getEvents()
+	public List<Event> getEvents()
 	{
 		return this.events;
 	}
+	
+	public GregorianCalendar getDate ()
+	{
+		return date;
+	}
+	
 }
