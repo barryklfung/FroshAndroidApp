@@ -38,12 +38,21 @@ public class DayListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 				//code for handling events here
-				(Toast.makeText(getApplicationContext(), "CLicked Item #" + position, Toast.LENGTH_LONG)).show();
+				
+				//(Toast.makeText(getApplicationContext(), "CLicked Item #" + position, Toast.LENGTH_LONG)).show();
+				runIntent();
 				
 			}
 			
 		});
 	}
+	
+	public void runIntent()
+	{
+		Intent intent = new Intent(this, DisplayEventActivity.class);
+		startActivity(intent);
+	}
+	
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

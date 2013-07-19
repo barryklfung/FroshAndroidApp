@@ -29,6 +29,10 @@
             android:name="ca.skule.froshapplication.DayListActivity"
             android:label="@string/title_activity_day_list" >
         </activity>
+        <activity
+            android:name="ca.skule.froshapplication.DisplayEventActivity"
+            android:label="@string/title_activity_display_event" >
+        </activity>
     </application>
 
 </manifest>
