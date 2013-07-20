@@ -30,9 +30,12 @@ public class MapActivity extends Activity {
 		
 		if (locationMarker!=null)
 		{
+			if (!locationMarker.getLocationName().equals("Unknown Location")&&!locationMarker.getLocationName().equals("uninitialized"))
+			{
 			mMapView=(MapView)(findViewById(R.id.map));
 			mMapView.setMarker(locationMarker);
 			mMapView.changeCameraPosition(locationMarker.getCoordX(), locationMarker.getCoordY());
+			}
 		}
 	}
 

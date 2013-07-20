@@ -148,7 +148,7 @@ public void drawOnCanvas (Canvas canvas) {
        } else if (mSupportsPan && mSupportsZoom) {
          if (mScaleDetector.isInProgress()) {
            // Pinch zoom is in progress
-           // if (mSupportsPan) canvas.translate(mPosX, mPosY);
+           if (mSupportsPan) canvas.translate(mPosX, mPosY);
            mFocusX = mScaleDetector.getFocusX ();
            mFocusY = mScaleDetector.getFocusY ();
            canvas.scale(mScaleFactor, mScaleFactor, mFocusX, mFocusY);

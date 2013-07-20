@@ -40,8 +40,8 @@ public void setMarker(Location marker)
 
 public void changeCameraPosition(int x, int y)
 {
-	mPosX=-x*mScaleFactor+getWidth()*0.5f/mScaleFactor;
-	mPosY=-y*mScaleFactor+getHeight()*0.5f/mScaleFactor;
+	mPosX=-x*mScaleFactor+this.getWidth()*0.5f/mScaleFactor;
+	mPosY=-y*mScaleFactor+this.getHeight()*0.5f/mScaleFactor;
 	invalidate();
 }
 
