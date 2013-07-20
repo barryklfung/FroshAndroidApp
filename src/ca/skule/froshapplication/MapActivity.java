@@ -37,7 +37,7 @@ public class MapActivity extends Activity {
 		else if (id.equalsIgnoreCase("map")){
 			// Point to Map
 		}
-			else if (id.equalsIgnoreCase("locations")){
+		else if (id.equalsIgnoreCase("locations")){
 			// Point to Building List Activity
 			Intent intent = new Intent (this,ListsActivity.class);
 			startActivity(intent);
