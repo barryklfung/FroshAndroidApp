@@ -147,11 +147,12 @@ public void drawOnCanvas (Canvas canvas) {
           Log.d ("Multitouch", "+p-z x, y : " + x + " " + y);
        } else if (mSupportsPan && mSupportsZoom) {
          if (mScaleDetector.isInProgress()) {
-           // Pinch zoom is in progress
-           if (mSupportsPan) canvas.translate(mPosX, mPosY);
+        	 // Pinch zoom is in progress
+           if (mSupportsPan) canvas.translate(x, y);
            mFocusX = mScaleDetector.getFocusX ();
            mFocusY = mScaleDetector.getFocusY ();
-           canvas.scale(mScaleFactor, mScaleFactor, mFocusX, mFocusY);
+           canvas.scale(mScaleFactor, mScaleFactor, 0, 0);
+           
            Log.d ("Multitouch", "+p+z x, y, focusX, focusY: " + x + " " + y + " " + mFocusX + " " + mFocusY);
          } else {
            // Pinch zoom is not in progress. Just do translation of canvas at whatever the current scale is.
