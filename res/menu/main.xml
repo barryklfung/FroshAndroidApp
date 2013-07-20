@@ -10,5 +10,6 @@
           android:title="@string/map"
           android:showAsAction="ifRoom|withText"
           android:onClick="onMenuClick" />
+     
 
 </menu>

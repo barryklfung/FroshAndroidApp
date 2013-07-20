@@ -34,7 +34,6 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout01=0x7f090009;
-        public static final int action_settings=0x7f090018;
         public static final int area1001=0x7f090011;
         public static final int area1002=0x7f090012;
         public static final int area1004=0x7f090013;
@@ -53,6 +52,7 @@ containing a value of this type.
         public static final int event_list_title=0x7f090007;
         public static final int list=0x7f090001;
         public static final int listview=0x7f09000a;
+        public static final int locations=0x7f090018;
         public static final int map=0x7f09000b;
         public static final int mapButton=0x7f090005;
         public static final int schedule=0x7f090017;
@@ -76,21 +76,23 @@ containing a value of this type.
         public static final int day_list=0x7f080000;
         public static final int display_event=0x7f080001;
         public static final int event_list=0x7f080002;
-        public static final int main=0x7f080003;
-        public static final int map=0x7f080004;
+        public static final int list=0x7f080003;
+        public static final int main=0x7f080004;
+        public static final int map=0x7f080005;
     }
     public static final class string {
-        public static final int action_settings=0x7f060006;
+        public static final int action_settings=0x7f060007;
         public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060007;
-        public static final int list=0x7f060003;
+        public static final int hello_world=0x7f060008;
+        public static final int locations=0x7f060004;
         public static final int map=0x7f060002;
-        public static final int no_data=0x7f06000a;
+        public static final int no_data=0x7f06000b;
         public static final int schedule=0x7f060001;
-        public static final int title_activity_day_list=0x7f060005;
-        public static final int title_activity_display_event=0x7f060008;
-        public static final int title_activity_event_list=0x7f060009;
-        public static final int title_activity_map=0x7f060004;
+        public static final int title_activity_day_list=0x7f060006;
+        public static final int title_activity_display_event=0x7f060009;
+        public static final int title_activity_event_list=0x7f06000a;
+        public static final int title_activity_list=0x7f060003;
+        public static final int title_activity_map=0x7f060005;
     }
     public static final class style {
         /** 

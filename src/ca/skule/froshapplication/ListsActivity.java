@@ -1,7 +1,7 @@
 package ca.skule.froshapplication;
 
 import android.os.Bundle;
-import android.app.AlertDialog;
+//import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
@@ -77,7 +77,7 @@ private ListView lists;
 		    			adb.show();*/
 		    	//Sending Coordinate Data.
 		    	Intent intent = new Intent (v.getContext(), MapActivity.class);
-				intent.putExtra("Co-ordinates", ListsActivity.CoMap.get(ListsActivity.CodeMap.get(lists.getItemAtPosition(pos))));
+				intent.putExtra("Location", ListsActivity.CodeMap.get(lists.getItemAtPosition(pos)));
 				//Testing Intent content
 				/*AlertDialog.Builder adb = new AlertDialog.Builder(
 		    			ListsActivity.this);
@@ -99,7 +99,7 @@ private ListView lists;
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.list, menu);
 		return true;
 	}	
 	protected ListAdapter createAdapter()
