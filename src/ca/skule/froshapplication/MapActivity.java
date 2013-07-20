@@ -7,13 +7,30 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MapActivity extends Activity {
 
+	Location locationMarker=null;
+	MapView mMapView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
+		
+		Bundle extras = getIntent().getExtras(); 
+		
+		if (extras!=null)
+		{
+		locationMarker = extras.getParcelable("Location");
+		}
+		
+		if (locationMarker!=null)
+		{
+			mMapView=(MapView)(findViewById(R.id.map));
+			mMapView.setMarker(locationMarker);
+			mMapView.changeCameraPosition(locationMarker.getCoordX(), locationMarker.getCoordY());
+		}
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)

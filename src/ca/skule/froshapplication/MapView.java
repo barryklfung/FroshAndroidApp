@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.util.AttributeSet;
+import android.util.Log;
 
 /**
  * This view displays a few rectangles that can be panned and zoomed. 
@@ -15,6 +16,8 @@ import android.util.AttributeSet;
  */
 
 public class MapView extends PanZoomView {
+	
+	private Location mLocation = null;
 
 /**
  */
@@ -28,6 +31,11 @@ public MapView (Context context, AttributeSet attrs) {
 
 public MapView (Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
+}
+
+public void setMarker(Location marker)
+{
+	mLocation=marker;
 }
 
 public void changeCameraPosition(int x, int y)
@@ -58,8 +66,10 @@ public void placeMarker(int x, int y, Canvas canvas, String marker){
 
 public void drawOnCanvas (Canvas canvas) {
 	super.drawOnCanvas(canvas);
-    placeMarker(325,1040,canvas, "BA");
-    //changeCameraPosition(325,1040);
+	if (mLocation!=null)
+	{
+		placeMarker(mLocation.getCoordX(),mLocation.getCoordY(),canvas, mLocation.getShortName());
+	}
 }
 
 /**

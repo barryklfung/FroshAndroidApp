@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     <ca.skule.froshapplication.MapView
-    android:id="@+id/zoomview"
+    android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     />
