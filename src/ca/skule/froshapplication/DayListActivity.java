@@ -75,19 +75,34 @@ public class DayListActivity extends Activity {
 		}
 		else if (day.getDay().equalsIgnoreCase("Tuesday"))
 		{
-			
+			day.addEvent(new Event("Engineering Entrance Aptitude Test", "9:00AM-10:30AM", new Location ("BA"), "Take the Engineering Entrance Aptitude Test. This is a real test but don't worry; it will not effect your grades.", Event.FROSH));
+			day.addEvent(new Event("F!rosh Olympics + BBQ Lunch", "10:30AM-1:30PM", new Location ("BA"), "F!rosh Olympics is a series of fun physical challenges that will test your skills, endurance, and sheer willpower. Compete with other F!rosh Groups and get to know your own group a little bit better! Which group will triumph? After F!rosh Olympics is an awesome BBQ Lunch!", Event.FROSH));
+			day.addEvent(new Event("Engineering Clubs Fair", "1:30PM-3:00PM", new Location ("BA"), "Skule truly has something to offer to everyone, including a wide assortment of undergraduate Engineering Clubs. Feeling high tech? Or are you on a mission to make the world better? At Skule there's a club for that.", Event.FROSH));
+			day.addEvent(new Event("Charity Buskerfest", "3:00PM-5:00PM", new Location ("BA"), "Take to the streets of Toronto for a good cause. Sing, dance, hula hoop, and play instruments to raise money for a charity (to be determined).", Event.FROSH));
+			day.addEvent(new Event("Toronto Argonauts Football Game", "5:00PM-10:00PM", new Location ("BA"), "The Toronto Argonauts is Toronto's own football team ('Football' here refers to North American football). Winning their latest championship as recently as 2012, the Argos are set to face the Montreal Alouettes! Come along with your Skulemates, enjoy the game, and cheer on Toronto (or Montreal; we're cool with that too). Tickets are included with F!rosh Week admission.", Event.FROSH));
 		}
 		else if (day.getDay().equalsIgnoreCase("Wednesday"))
 		{
-			
+			day.addEvent(new Event("Fun with Faculty!", "9:00AM-12:00PM", new Location ("BA"), "Get ready for classes on Thursday. Meet your professors. And learn if you're better at them at Guitar Hero! Wait, what? Fun with Faculty is an event for every first-year engineering student where you'll get to know your profs and the academic side of Engineering.\n \n Note: This event is free for ALL engineering students.", Event.FROSH));
+			day.addEvent(new Event("Department Lunch", "12:00PM-2:00PM", new Location ("BA"), "Get to know your own department. Enjoy free lunch. And get valuable advice for your university life here.", Event.FROSH));
+			day.addEvent(new Event("Faculty Presentations", "2:00PM-4:00PM", new Location ("BA"), "Content to be determined.", Event.FROSH));
+			day.addEvent(new Event("World Record Ninja!", "2:00PM-4:00PM", new Location ("BA"), "Feel like breaking a world record? We'd like to tell you about this event. We will gather as many people to play the game 'Ninja'; more than the current Guinness World Record.", Event.FROSH));
+			day.addEvent(new Event("Skule Nite 101", "2:00PM-4:00PM", new Location ("BA"), "Skule Nite, the Engineering musical and sketch comedy revue, invites you to embark on a journey towards ultimate F!rosh victory! But beware, the quest is fraught with a variety of challenges to test the skills, courage, and creativity of those F!rosh brave enough to undertake it. In the end, a lone group shall emergy victorious, and to the victors go the spoils!", Event.FROSH));
+			day.addEvent(new Event("Discipline Club Activities + Dinner", "4:00PM-5:30PM", new Location ("BA"), "Discipline Clubs represent your engineering program, plan social events for your program, and are an opportunity to get involved within Skule Life. Meet your Disciple Clubs, get some advice, and grab free dinner!", Event.FROSH));
+			day.addEvent(new Event("Suds!", "5:30PM-8:00PM", new Location ("BA"), "Yay! A break in your schedule! Why not go to Suds? It's a social event that takes place in the Sandford Fleming atrium. Chill and meet some upper-year engineers.", Event.FROSH));
+			day.addEvent(new Event("F!rosh Nite at Guvernment", "8:00PM-Late", new Location ("BA"), "This all-ages club night is THE hottest event on campus during Orientation. Held at the Guvernment nightclub, this is free with F!rosh Week admission.", Event.FROSH));
 		}
 		else if (day.getDay().equalsIgnoreCase("Thursday"))
 		{
-			
+			day.addEvent(new Event("Classes", "Start from 9:00AM", new Location ("BA"), "I can already hear you booing. But class is important! And you don't want to miss your first lectures", Event.FROSH));
+			day.addEvent(new Event("Blue & Gold Bed Races", "3:00PM-5:00PM", new Location ("BA"), "Use whatever you have to build a vehicle that resembles something you can sleep on. Then race against the other colleges to defend the engineering honour!", Event.FROSH));
+			day.addEvent(new Event("Suds!", "5:00PM-Late", new Location ("BA"), "", Event.FROSH));
 		}
 		else if (day.getDay().equalsIgnoreCase("Friday"))
 		{
-			
+			day.addEvent(new Event("Classes", "Start from 9:00AM", new Location ("BA"), "", Event.FROSH));
+			day.addEvent(new Event("Parade", "2:00PM-5:00PM", new Location ("BA"), "Take tot he streets one last time with the other colleges and faculties, along with our awesome Engineering parade float!", Event.FROSH));
+			day.addEvent(new Event("Havenger Scunt", "7:00PM-Late", new Location ("BA"), "Nope, you didn't read that wrong. That is what we call our F!rosh Week scavenger hunt. But beware! This is not your average scavenger hunt. From eating cloves of raw garlic to getting the mayor of Toronto to officially endorse the Engineering Havenger Scunt, craziness of all sorts have made the list. You won't believe the things that happen at this event!", Event.FROSH));
 		}
 		else{
 			
