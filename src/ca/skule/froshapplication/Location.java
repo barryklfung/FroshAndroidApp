@@ -59,14 +59,9 @@ public class Location implements Parcelable {
 	}
 	
 	public Location (int coordX, int coordY, String locationName){
-		this.coordX = coordX;
-		this.coordY = coordY;
-		this.locationName = locationName;
-		sLocationName=CodeMap.get(this.locationName);
-
-		if (CodeMap.containsKey(this.locationName))
+		if (CodeMap.containsKey(locationName))
 		{
-			sLocationName=CodeMap.get(this.locationName);
+			sLocationName=CodeMap.get(locationName);
 			this.coordX = coordX;
 			this.coordY = coordY;
 			this.locationName = locationName;
