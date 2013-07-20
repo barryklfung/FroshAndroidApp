@@ -94,15 +94,15 @@ public class DayListActivity extends Activity {
 		}
 		else if (day.getDay().equalsIgnoreCase("Thursday"))
 		{
-			day.addEvent(new Event("Classes", "From 9:00AM", new Location (""), "I can already hear you booing. But class is important! And you don't want to miss your first lectures.", Event.FACULTY));
-			day.addEvent(new Event("Blue & Gold Bed Races", "3:00PM-5:00PM", new Location (""), "Use whatever you have to build a vehicle that resembles something you can sleep on. Then race against the other colleges to defend the engineering honour!", Event.FROSH));
-			day.addEvent(new Event("Suds!", "5:00-Late", new Location (""), "", Event.EXTERNAL));	
+			day.addEvent(new Event("Classes", "Start from 9:00AM", new Location ("BA"), "I can already hear you booing. But class is important! And you don't want to miss your first lectures", Event.FROSH));
+			day.addEvent(new Event("Blue & Gold Bed Races", "3:00PM-5:00PM", new Location ("BA"), "Use whatever you have to build a vehicle that resembles something you can sleep on. Then race against the other colleges to defend the engineering honour!", Event.FROSH));
+			day.addEvent(new Event("Suds!", "5:00PM-Late", new Location ("BA"), "", Event.FROSH));
 		}
 		else if (day.getDay().equalsIgnoreCase("Friday"))
 		{
-			day.addEvent(new Event("Classes", "From 9:00AM", new Location (""), "", Event.FACULTY));
-			day.addEvent(new Event("Parade", "2:00PM-5:00PM", new Location (""), "Take to the streets one last time with the other colleges and faculties, along with our awesome Engineering parade float!", Event.FROSH));
-			day.addEvent(new Event("Havenger Scunt", "7:00PM-Late", new Location ("SF"), "Nope, you didn't read that wrong. That is what we call our F!rosh Week scavenger hunt. But beware! This is not your average scavenger hunt. From eating cloves of raw garlic to getting the mayor of Toronto to officially endorse the Engineering Havenger Scunt, craziness of all sorts have made the list. You won't believe the things that happen at this event!", Event.FROSH));
+			day.addEvent(new Event("Classes", "Start from 9:00AM", new Location ("BA"), "", Event.FROSH));
+			day.addEvent(new Event("Parade", "2:00PM-5:00PM", new Location ("BA"), "Take tot he streets one last time with the other colleges and faculties, along with our awesome Engineering parade float!", Event.FROSH));
+			day.addEvent(new Event("Havenger Scunt", "7:00PM-Late", new Location ("BA"), "Nope, you didn't read that wrong. That is what we call our F!rosh Week scavenger hunt. But beware! This is not your average scavenger hunt. From eating cloves of raw garlic to getting the mayor of Toronto to officially endorse the Engineering Havenger Scunt, craziness of all sorts have made the list. You won't believe the things that happen at this event!", Event.FROSH));
 		}
 		else{
 			
