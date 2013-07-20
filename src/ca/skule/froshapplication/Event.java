@@ -13,6 +13,7 @@ public class Event implements Parcelable {
 	private String details;
 	public static final int FROSH = 0;
 	public static final int FACULTY = 1;
+	public static final int EXTERNAL = 2;
 	private int type;
 	
 	//functions for Parcellable

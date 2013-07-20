@@ -75,19 +75,34 @@ public class DayListActivity extends Activity {
 		}
 		else if (day.getDay().equalsIgnoreCase("Tuesday"))
 		{
-			
+			day.addEvent(new Event("Engineering Entrance Aptitude Test", "9:00AM-10:30AM", new Location ("BA"), "Take the Engineering Entrance Aptitude Test. This is a real test, but don't worry; it will not affect your grades.", Event.FACULTY));
+			day.addEvent(new Event("F!rosh Olympics + BBQ Lunch", "10:30AM-1:30PM", new Location ("FC"), "F!rosh Olympics is a series of fun physical challenges that will test your skills, endurance, and sheer willpower. Compete with other F!rosh Groups and get to know your own group a little bit better! Which group will triumph?", Event.FROSH));
+			day.addEvent(new Event("Engineering Clubs Fair", "1:30PM-3:00PM", new Location ("BA"), "Skule&trade; truly has something to offer to everyone, including a wide assortment of undergraduate Engineering Clubs. Feeling high tech? Or are you on a mission to make the world better? At Skule&trade; there's a club for that.", Event.FROSH));
+			day.addEvent(new Event("Charity Buskerfest", "3:00PM-5:00PM", new Location ("FC"), "Gather around with your fellow Skulemate, frosh and leedurs alike. Here's the twist: We'll be arranging you guys into a giant F!rosh Picture and taking your photo from above! What's the Design? You'll have to wait until you get your Skule Yearkbook at the end of the year (free with admission to F!rosh!)", Event.FROSH));
+			day.addEvent(new Event("Toronto Argonauts football game", "5:00PM-10:00PM", new Location (""), "The Toronto Argonauts is Toronto's own football team (\"Football\" here refers to North American football). Winning their latest championship as recently as 2012, the Argos are set to face the Montreal Alouettes! Come along with your Skulemates, enjoy the game, and cheer on Toronto (or Montreal; we're cool with that too). Tickets are inicluded with F!rosh Week admission.", Event.FROSH));
 		}
 		else if (day.getDay().equalsIgnoreCase("Wednesday"))
 		{
-			
+			day.addEvent(new Event("Fun with Faculty", "9:00AM-12:00PM", new Location ("BA"), "Get ready for classes on Thursday. Meet your professors. And learn if you're better at them at Guitar Hero! Wait, what? Fun with Faculty is an event for every first-year engineering student where you'll get to know your profs and the academic side of Engineering. Note that this event is free for all engineering students. You do not need to be signed up for F!rosh Week to attend. All first year engineering students are encouraged to attend!", Event.FACULTY));
+			day.addEvent(new Event("Department Lunch", "12:00PM-2:00PM", new Location (""), "Get to know your own department. Enjoy free lunch. And get valuable advice for your university life here.", Event.FACULTY));
+			day.addEvent(new Event("Choice: Faculty Presentation", "2:00PM-4:00PM", new Location (""), "Content to be determined.", Event.FACULTY));
+			day.addEvent(new Event("Choice: World Record Ninja!", "2:00PM-4:00PM", new Location (""), "Feel like breaking a world record? We'd like to tell you about this event. We will gather as many people to play the game \"Ninja\"; more than the current Guinness World Record.", Event.FROSH));
+			day.addEvent(new Event("Choice: Skule Nite 101", "2:00PM-4:00PM", new Location (""), "Skule Nite, the Engineering musical and sketch comedy revue, invites you to embark on a journey towards ultimate F!rosh victory! But beware, the quest is fraught with a variety of challenges to test the skills, courage, and creativity of those F!rosh brave enough to undertake it. In the end, a lone group shall emerge victorious, and to the victors go the spoils!", Event.FROSH));
+			day.addEvent(new Event("Discipline Club Activities", "4:00PM-5:30PM", new Location (""), "Discipline Clubs represent your engineering program, plan social events for your program, and are an opportunity to get involved within Skule Life. Meet your Discipline Clubs, get some advice, and grab free dinner!", Event.EXTERNAL));
+			day.addEvent(new Event("Suds!", "5:30PM-8:00PM", new Location ("SF"), "Yay! a break in your schedule! Why not go to Suds? It's a social event that takes place in the Sandford Fleming atrium. Chill and meet some upper-year engineers.", Event.EXTERNAL));
+			day.addEvent(new Event("F!rosh Nite at Guvernment", "8:00PM-Late", new Location (""), "This all-ages club night is THE hottest event on campus during Orientation. Held at the Guvernment nightclub, this is <strong>free</strong> with F!rosh Week admission.", Event.FROSH));
 		}
 		else if (day.getDay().equalsIgnoreCase("Thursday"))
 		{
-			
+			day.addEvent(new Event("Classes", "From 9:00AM", new Location (""), "I can already hear you booing. But class is important! And you don't want to miss your first lectures.", Event.FACULTY));
+			day.addEvent(new Event("Blue & Gold Bed Races", "3:00PM-5:00PM", new Location (""), "Use whatever you have to build a vehicle that resembles something you can sleep on. Then race against the other colleges to defend the engineering honour!", Event.FROSH));
+			day.addEvent(new Event("Suds!", "5:00-Late", new Location (""), "", Event.EXTERNAL));	
 		}
 		else if (day.getDay().equalsIgnoreCase("Friday"))
 		{
-			
+			day.addEvent(new Event("Classes", "From 9:00AM", new Location (""), "", Event.FACULTY));
+			day.addEvent(new Event("Parade", "2:00PM-5:00PM", new Location (""), "Take to the streets one last time with the other colleges and faculties, along with our awesome Engineering parade float!", Event.FROSH));
+			day.addEvent(new Event("Havenger Scunt", "7:00PM-Late", new Location ("SF"), "Nope, you didn't read that wrong. That is what we call our F!rosh Week scavenger hunt. But beware! This is not your average scavenger hunt. From eating cloves of raw garlic to getting the mayor of Toronto to officially endorse the Engineering Havenger Scunt, craziness of all sorts have made the list. You won't believe the things that happen at this event!", Event.FROSH));
 		}
 		else{
 			
@@ -107,7 +122,7 @@ public class DayListActivity extends Activity {
 	
 	private Day[] initDays (){
 		
-		String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "F!riday"};
+		String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 		String[] dateArray = {"September 2, 2013", "September 3, 2013", "September 4, 2013", "September 5, 2013", "September 6, 2013"};
 		Day[] days = new Day[dayNames.length];
 		for (int i = 0; i < dayNames.length;i++)
