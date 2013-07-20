@@ -26,7 +26,6 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080009;
-        public static final int action_settings=0x7f080012;
         public static final int daySubTitle=0x7f08000d;
         public static final int dayTitle=0x7f08000c;
         public static final int day_list_title=0x7f080000;
@@ -39,7 +38,7 @@ public final class R {
         public static final int event_list_title=0x7f080007;
         public static final int list=0x7f080001;
         public static final int listview=0x7f08000a;
-        public static final int locations=0x7f080013;
+        public static final int locations=0x7f080012;
         public static final int map=0x7f080011;
         public static final int mapButton=0x7f080005;
         public static final int schedule=0x7f080010;
