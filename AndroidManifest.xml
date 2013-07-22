@@ -37,10 +37,14 @@
             android:name="ca.skule.froshapplication.EventListActivity"
             android:label="@string/title_activity_event_list" >
         </activity>
-        
         <activity
             android:name="ca.skule.froshapplication.ListsActivity"
             android:label="@string/title_activity_list" >
         </activity>
+        <activity
+            android:name="ca.skule.froshapplication.ScheduleSwipeActivity"
+            android:label="@string/title_activity_schedule_swipe" >
+        </activity>
     </application>
+
 </manifest>

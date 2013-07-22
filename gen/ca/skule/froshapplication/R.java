@@ -26,6 +26,7 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080009;
+        public static final int action_settings=0x7f080012;
         public static final int daySubTitle=0x7f08000d;
         public static final int dayTitle=0x7f08000c;
         public static final int day_list_title=0x7f080000;
@@ -51,9 +52,10 @@ public final class R {
         public static final int activity_list=0x7f030003;
         public static final int activity_main=0x7f030004;
         public static final int activity_map=0x7f030005;
-        public static final int day_list_item=0x7f030006;
-        public static final int event_list_item=0x7f030007;
-        public static final int simple_list_item=0x7f030008;
+        public static final int activity_schedule_swipe=0x7f030006;
+        public static final int day_list_item=0x7f030007;
+        public static final int event_list_item=0x7f030008;
+        public static final int simple_list_item=0x7f030009;
     }
     public static final class menu {
         public static final int day_list=0x7f070000;
@@ -62,6 +64,7 @@ public final class R {
         public static final int list=0x7f070003;
         public static final int main=0x7f070004;
         public static final int map=0x7f070005;
+        public static final int schedule_swipe=0x7f070006;
     }
     public static final class string {
         public static final int action_settings=0x7f050007;
@@ -76,6 +79,7 @@ public final class R {
         public static final int title_activity_event_list=0x7f05000a;
         public static final int title_activity_list=0x7f050003;
         public static final int title_activity_map=0x7f050005;
+        public static final int title_activity_schedule_swipe=0x7f05000c;
     }
     public static final class style {
         /** 
