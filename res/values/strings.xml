@@ -13,5 +13,6 @@
     <string name="title_activity_display_event">DisplayEventActivity</string>
     <string name="title_activity_event_list">EventListActivity</string>
     <string name="no_data">No data</string>
-</resources>
+    <string name="title_activity_ftips">F! Tips</string>
 
+</resources>
