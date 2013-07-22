@@ -24,6 +24,9 @@ public class Location implements Parcelable {
 		CodeMap.put("Queen's Park","QP");
 		CodeMap.put("Sandford Fleming Building","SF");
 		CodeMap.put("Wallberg Buildling","WB");
+		CodeMap.put("Medical Science Building", "MS");
+		CodeMap.put("Rogers Centre", "RC");
+		
 	}
 	
 //Parcelable methods
@@ -59,6 +62,11 @@ public class Location implements Parcelable {
 	}
 	
 	public Location (int coordX, int coordY, String locationName){
+		
+		this.coordX = coordX;
+		this.coordY = coordY;
+		this.locationName = locationName;
+		sLocationName=CodeMap.get(this.locationName);
 		if (CodeMap.containsKey(locationName))
 		{
 			sLocationName=CodeMap.get(locationName);
@@ -135,6 +143,18 @@ public class Location implements Parcelable {
 			coordY = 1163;
 			locationName = "Wallberg Building";
 			sLocationName = "WB";
+		}
+		else if (shortName.equalsIgnoreCase("MS")){
+			coordX = 733;
+			coordY = 1016;
+			locationName = "Medical Sciences Building";
+			sLocationName = "MS";
+		}
+		else if (shortName.equalsIgnoreCase("RC")){
+			coordX = -10000;
+			coordY = -10000;
+			locationName = "Rogers Centre";
+			sLocationName = "RC";
 		}
 		else{
 			coordX=0;

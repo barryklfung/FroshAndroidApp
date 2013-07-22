@@ -22,9 +22,10 @@ public class ListsActivity extends ListActivity {
 		"Galbraith Building",
 		"Lassonde Mining Building",
 		"Mechanical Engineering Building",
+		"Medical Sciences Building",
 		"Queen's Park",
 		"Sandford Fleming Building",
-		"Wallberg Buildling"	
+		"Wallberg Buildling"
 	};
 	// HashMap, with keys as location names, and objects as location codes
 	static HashMap<String,String> CodeMap = new HashMap<String,String>();
@@ -35,8 +36,10 @@ public class ListsActivity extends ListActivity {
 		CodeMap.put("Front Campus","FC");
 		CodeMap.put("Galbraith Building","GB");
 		CodeMap.put("Lassonde Mining Building","MB");
+		CodeMap.put("Medical Sciences Building", "MS");
 		CodeMap.put("Mechanical Engineering Building","MC");
 		CodeMap.put("Queen's Park","QP");
+		CodeMap.put("Rogers Centre","RC");
 		CodeMap.put("Sandford Fleming Building","SF");
 		CodeMap.put("Wallberg Buildling","WB");
 	}

@@ -32,8 +32,11 @@ public class EventEntryAdapter extends ArrayAdapter<Event> {
 		Event currentItem = getItem(position);
 		title.setText(currentItem.getName());
 		time.setText(currentItem.getTime() + "     |");
-		location.setText(currentItem.getLocation().getLocationName());
-		
+		if (currentItem.getLocation().getLocationName().equals("Unknown Location")){
+			location.setText("");
+			}
+		else
+			location.setText(currentItem.getLocation().getLocationName());
 		return eventView;
 	}
 }
