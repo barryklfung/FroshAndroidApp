@@ -20,29 +20,35 @@
         android:id="@+id/eventTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/eventImage"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/eventImage"
-        android:text="Large Text"
+        android:layout_alignTop="@id/eventImage"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/eventImage"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/eventTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/eventTitle"
-        android:layout_below="@+id/eventTitle"
+        android:layout_alignLeft="@id/eventTitle"
+        android:layout_below="@id/eventTitle"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+	
+    <Button 
+        android:id="@+id/mapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/eventImage"
+        android:layout_below="@id/eventImage"
+        android:text="Map"
+        />
     <TextView
         android:id="@+id/eventDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/eventImage"
-        android:layout_below="@+id/eventImage"
+        android:layout_alignLeft="@id/eventImage"
+        android:layout_below="@id/mapButton"
         android:layout_marginTop="20dp"
-        android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

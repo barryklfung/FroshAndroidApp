@@ -1,18 +1,28 @@
 package ca.skule.froshapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Button;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 public class DisplayEventActivity extends Activity {
 
-	private Event thisEvent = new Event("Test event", "6:00pm - 7:00am", "Sanford Fleming (SF)", "Fun stuff yo");
+	private Event thisEvent = new Event();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_event);
+		
+		Button button = (Button)findViewById(R.id.mapButton);
+		
+		
+		Intent intent = getIntent();
+		thisEvent = intent.getExtras().getParcelable("Event");
 		
 		TextView title = (TextView)(findViewById(R.id.eventTitle));
 		title.setText(thisEvent.getName());
@@ -21,7 +31,18 @@ public class DisplayEventActivity extends Activity {
 		TextView details = (TextView)(findViewById(R.id.eventDetails));
 		details.setText(thisEvent.getDetails());
 		
+		button.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick (View view){
+				runIntent();
+			}
+		});
 		
+	}
+	private void runIntent (){
+		Intent intent = new Intent (this, MapActivity.class);
+		intent.putExtra("Location", thisEvent.getLocation());
+		startActivity(intent);
 	}
 
 	@Override

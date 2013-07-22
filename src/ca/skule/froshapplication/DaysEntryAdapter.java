@@ -14,14 +14,12 @@ import java.util.Date;
 
 public class DaysEntryAdapter extends ArrayAdapter<Day> {
 	
-	private Day[] days;
 	private Context context;
 	
 	public DaysEntryAdapter (final Context context){
 		super (context, 0);
 		this.context = context;
-		this.days=days;
-	}
+}
 	
 	@Override
 	public View getView (final int position, final View convertView, final ViewGroup parent){
@@ -32,8 +30,7 @@ public class DaysEntryAdapter extends ArrayAdapter<Day> {
 		TextView subTitle = (TextView)dayView.findViewById(R.id.daySubTitle);
 		
 		title.setText(getItem(position).getDay());
-		SimpleDateFormat date_format = new SimpleDateFormat ("MMM dd, yyyy");
-		subTitle.setText(getItem(position).toString());
+		subTitle.setText(getItem(position).getDate());
 		
 		return dayView;
 	}

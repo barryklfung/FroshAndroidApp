@@ -11,8 +11,8 @@ import android.widget.ListView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
+import java.util.ArrayList;
 
-import java.util.GregorianCalendar;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class DayListActivity extends Activity {
@@ -39,18 +39,61 @@ public class DayListActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 				//code for handling events here
 				
-				//(Toast.makeText(getApplicationContext(), "CLicked Item #" + position, Toast.LENGTH_LONG)).show();
-				runIntent();
+				runIntent (days[position]);
+				
 				
 			}
 			
 		});
 	}
 	
-	public void runIntent()
-	{
-		Intent intent = new Intent(this, DisplayEventActivity.class);
+	public void runIntent(Day day)
+	{		
+		
+		Intent intent = new Intent(this, EventListActivity.class);
+		day = initDay(day);
+		intent.putExtra ("Day", day);
 		startActivity(intent);
+				
+	}
+	
+	//use this function to initialize the relevant day and all its events.
+	public Day initDay(Day day){
+
+		if (day.getDay().equalsIgnoreCase("Monday"))
+		{
+			day.addEvent(new Event("Arrival and Registration", "7:30AM-9:00AM", new Location ("FC"), "Your big day begins outside of Front Campus. Grab your F!rosh Kit and get to know your F!rosh Group!", Event.FROSH));
+			day.addEvent(new Event("Matriculation", "9:00AM-11:00AM", new Location ("CH"), "This is your official introduction ot U of T Engineering. Find out what Skule has to offer for you and take your first oath toward engineeringdom!", Event.FROSH));
+			day.addEvent(new Event("Campus Tours + Lunch + Dye", "11:00AM-2:00PM", new Location ("FC"), "Here we will give you a whirlwind tour of where you'll be spending your next the next four years of your life, from th ebest study spots to the coolest places to hang out. Participate in the time-honoured tradition of getting dyed purple and show your engineering pride. Did we mention there was lunch?", Event.FROSH));
+			day.addEvent(new Event("F!rosh Picture", "2:00PM-3:00PM", new Location ("FC"), "Gather around with your fellow Skulemate, frosh and leedurs alike. Here's the twist: We'll be arranging you guys into a giant F!rosh Picture and taking your photo from above! What's the Design? You'll have to wait until you get your Skule Yearkbook at the end of the year (free with admission to F!rosh!)", Event.FROSH));
+			day.addEvent(new Event("Downtown Walkaround", "3:00PM-5:30PM", new Location ("QP"), "The epic stats here. Imaging about 1100 purple F!rosh and leedurs crashing through the streets of downtown Toronto, screaming cheers and just generally being, well, epc! Thats going to be you. Get excited!", Event.FROSH));
+			day.addEvent(new Event("Dinner", "5:30PM-6:30PM", new Location ("BA"), "Food! Yum. Need we say more?", Event.FROSH));
+			day.addEvent(new Event("EEAT Tutorial", "6:30PM-7:30PM", new Location ("SF"), "The Engineering Entrance Aptitude Test (EEAT) will be administered on September 3 from 9-10:30AM. This tutorial will prepare you with everything you need to know about the test on Tuesday.", Event.FACULTY));
+			day.addEvent(new Event("Spark Design Club Event", "7:30PM-Late", new Location (""), "The Spark Design Club presents their first project of the year! What will it be? Find out.", Event.FROSH));
+			day.addEvent(new Event("Movie Night", "7:30PM-Late", new Location (""), "Not feeling design-y? Happening at the same time is a movie! Relax and enjoy with your newfound friends.", Event.FROSH));	
+			
+		}
+		else if (day.getDay().equalsIgnoreCase("Tuesday"))
+		{
+			
+		}
+		else if (day.getDay().equalsIgnoreCase("Wednesday"))
+		{
+			
+		}
+		else if (day.getDay().equalsIgnoreCase("Thursday"))
+		{
+			
+		}
+		else if (day.getDay().equalsIgnoreCase("Friday"))
+		{
+			
+		}
+		else{
+			
+		}
+		day.trimList();
+		return day;
 	}
 	
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -65,7 +108,7 @@ public class DayListActivity extends Activity {
 	private Day[] initDays (){
 		
 		String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "F!riday"};
-		GregorianCalendar[] dateArray = {new GregorianCalendar(2013, 9, 2), new GregorianCalendar(2013, 9, 3), new GregorianCalendar(2013, 9, 4), new GregorianCalendar(2013, 9, 5), new GregorianCalendar(2013, 9, 6)};
+		String[] dateArray = {"September 2, 2013", "September 3, 2013", "September 4, 2013", "September 5, 2013", "September 6, 2013"};
 		Day[] days = new Day[dayNames.length];
 		for (int i = 0; i < dayNames.length;i++)
 		{
