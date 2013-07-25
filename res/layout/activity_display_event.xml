@@ -51,4 +51,12 @@
         android:layout_marginTop="20dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
+    <Button
+        android:id="@+id/local_notify_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/eventDetails"
+        android:layout_centerVertical="true"
+        android:text="@string/local_notification" />
+
 </RelativeLayout>

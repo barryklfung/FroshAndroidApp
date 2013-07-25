@@ -37,6 +37,11 @@
             android:name="ca.skule.froshapplication.EventListActivity"
             android:label="@string/title_activity_event_list" >
         </activity>
+
+        <service android:enabled="true"
+         android:name="ca.skule.froshapplication.NotificationService">
+    . . .
+</service>
     </application>
 
 </manifest>
