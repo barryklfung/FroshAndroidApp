@@ -10,7 +10,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_display_event">DisplayEventActivity</string>
     <string name="title_activity_event_list">EventListActivity</string>
-    <string name="local_notification">Notify Me</string>
+    <string name="local_notification">Notify Me For This Event!</string>
     <string name="title_activity_notification">NotificationActivity</string>
 
 </resources>
