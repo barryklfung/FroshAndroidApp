@@ -53,6 +53,10 @@ public class ScheduleSwipeActivity extends FragmentActivity {
 			Intent intent = new Intent (this, MapActivity.class);
 			startActivity(intent);
 		}
+		else if (id.equalsIgnoreCase("F! Tips")){
+			Intent intent = new Intent (this, FTipListActivity.class);
+			startActivity(intent);
+		}
 	}
 	
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
