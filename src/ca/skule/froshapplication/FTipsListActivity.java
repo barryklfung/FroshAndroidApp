@@ -1,6 +1,8 @@
 package ca.skule.froshapplication;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.annotation.TargetApi;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
@@ -10,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-public class FTipsActivity extends ListActivity {
+public class FTipsListActivity extends ListActivity {
 	// Array of all locations used in this application
 	static String[] NameList = new String[] {
 		"F!rosh Week Tips",
@@ -31,6 +33,7 @@ public class FTipsActivity extends ListActivity {
 		    }
 		    protected void onListItemClick(View v, int pos, long id) {
 		    	Intent intent = new Intent (v.getContext(), MapActivity.class);
+		    	intent.putExtra("Category", lists.getItemIdAtPosition(pos));
 				startActivity(intent);
 		    }
 		});
@@ -41,10 +44,12 @@ public class FTipsActivity extends ListActivity {
 		
 	}
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.list, menu);
+		getActionBar().setDisplayShowTitleEnabled(false);
 		return true;
 	}	
 	protected ListAdapter createAdapter()
