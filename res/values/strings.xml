@@ -14,5 +14,6 @@
     <string name="title_activity_event_list">EventListActivity</string>
     <string name="no_data">No data</string>
     <string name="title_activity_schedule_swipe">ScheduleSwipeActivity</string>
+    <string name="title_activity_expanding_list">ExpandingListActivity</string>
 
 </resources>

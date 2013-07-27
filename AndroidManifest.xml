@@ -45,6 +45,10 @@
             android:name="ca.skule.froshapplication.ScheduleSwipeActivity"
             android:label="@string/title_activity_schedule_swipe" >
         </activity>
+        <activity
+            android:name="ca.skule.froshapplication.ExpandingListActivity"
+            android:label="@string/title_activity_expanding_list" >
+        </activity>
     </application>
 
 </manifest>
