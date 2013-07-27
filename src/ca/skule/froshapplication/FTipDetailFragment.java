@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import ca.skule.froshapplication.dummy.DummyContent;
+import ca.skule.froshapplication.item.ItemContent;
 
 /**
  * A fragment representing a single FTip detail screen. This fragment is either
@@ -26,7 +26,7 @@ public class FTipDetailFragment extends Fragment {
 	/**
 	 * The dummy content this fragment is presenting.
 	 */
-	private DummyContent.DummyItem mItem;
+	private ItemContent.TipItem mItem;
 
 	/**
 	 * Mandatory empty constructor for the fragment manager to instantiate the
@@ -43,7 +43,7 @@ public class FTipDetailFragment extends Fragment {
 			// Load the dummy content specified by the fragment
 			// arguments. In a real-world scenario, use a Loader
 			// to load content from a content provider.
-			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
+			mItem = ItemContent.ITEM_MAP.get(getArguments().getString(
 					ARG_ITEM_ID));
 		}
 	}
