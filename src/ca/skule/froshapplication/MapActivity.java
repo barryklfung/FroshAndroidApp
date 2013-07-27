@@ -1,41 +1,86 @@
 package ca.skule.froshapplication;
 
+import java.io.File;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 
 public class MapActivity extends Activity {
 
 	Location locationMarker=null;
-	MapView mMapView;
+	private GoogleMap mMap = null;
+	static final LatLng DEFAULT = new LatLng(43.6631, -79.3954);
+	public boolean onlineAccess;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
-		
 		Bundle extras = getIntent().getExtras(); 
-		
+		onlineAccess=isNetworkAvailable();
+		String locationName = null;
+
 		if (extras!=null)
 		{
-		locationMarker = extras.getParcelable("Location");
+			locationName = extras.getString("Location");
+			locationMarker=new Location(locationName);
 		}
-		
-		if (locationMarker!=null)
-		{
-			if (!locationMarker.getLocationName().equals("Unknown Location")&&!locationMarker.getLocationName().equals("uninitialized"))
-			{
-			mMapView=(MapView)(findViewById(R.id.map));
-			mMapView.setMarker(locationMarker);
-			mMapView.changeCameraPosition(locationMarker.getCoordX(), locationMarker.getCoordY());
+
+		if (mMap == null) {
+			mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+					.getMap();
+			// Check if we were successful in obtaining the map.
+			if (mMap != null) {
+				if (locationMarker!=null)
+				{
+					if (!locationMarker.getLocationName().equals("Unknown Location")&&!locationMarker.getLocationName().equals("uninitialized"))
+					{
+
+						LatLng markerLocation = locationMarker.getLatLng();
+						Marker marker = mMap.addMarker(new MarkerOptions()
+						.position(markerLocation)
+						.title(locationMarker.getLocationName())
+						.snippet("aka. " + locationMarker.getShortName()));
+						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocation, 6));
+						if (!new File(getExternalCacheDir(), "cache_vts_ca.skule.froshapplication.0").exists())
+						{
+							Log.d("Searching Cache","THE FILE DOES NOT EXIST");
+							onlineAccess=false;
+						}
+
+					}
+				}
+				else{
+					mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 6));
+				}
 			}
+		}
+
+		if (!onlineAccess)
+		{
+			Intent intent = new Intent (this,MapActivity2.class);
+			if (locationName != null && !locationName.isEmpty())
+			{
+				intent.putExtra("Location", locationName);
+			}
+			startActivity(intent);
 		}
 	}
 
@@ -45,7 +90,7 @@ public class MapActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.map, menu);
 		getActionBar().setDisplayShowTitleEnabled(false);
-		
+
 		return true;
 	}
 
@@ -63,6 +108,12 @@ public class MapActivity extends Activity {
 			Intent intent = new Intent (this,ListsActivity.class);
 			startActivity(intent);
 		}
+	}
+
+	private boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 }
 
