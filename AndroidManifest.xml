@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="ca.skule.froshapplication"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.skule.froshapplication"
     android:versionCode="1"
-    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-    <permission android:protectionLevel="signature" android:name="ca.skule.froshapplication.permission.C2D_MESSAGE"></permission>
-    <uses-permission android:name="ca.skule.froshapplication.permission.C2D_MESSAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="ca.skule.froshapplication.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" >
+    </permission>
+
+    <uses-permission android:name="ca.skule.froshapplication.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +34,7 @@
         <activity
             android:name="ca.skule.froshapplication.ScheduleSwipeActivity"
             android:label="@string/title_activity_schedule_swipe" >
-        	<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -55,16 +62,32 @@
         </activity>
         <activity
             android:name="ca.skule.froshapplication.FTipsListActivity"
-            android:label="@string/title_activity_ftips">
+            android:label="@string/title_activity_ftips" >
         </activity>
-        <receiver android:name=".GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+
+        <receiver
+            android:name="ca.skule.froshapplication.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-                <category android:name="ca.skule.froshapplication"/>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="ca.skule.froshapplication" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="ca.skule.froshapplication.FTipListActivity"
+            android:label="@string/title_ftip_list" >
+        </activity>
+        <activity
+            android:name="ca.skule.froshapplication.FTipDetailActivity"
+            android:label="@string/title_ftip_detail"
+            android:parentActivityName=".FTipListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FTipListActivity" />
+        </activity>
     </application>
 
 </manifest>

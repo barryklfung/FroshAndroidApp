@@ -58,7 +58,7 @@ public class DisplayEventActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			Intent intent = new Intent (this, DayListActivity.class);
+			Intent intent = new Intent (this, ScheduleSwipeActivity.class);
 			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){
