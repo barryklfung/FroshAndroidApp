@@ -16,22 +16,22 @@ import java.util.ArrayList;
 public class EventListActivity extends Activity {
 	ArrayList<Event> eventList;
 	Day thisDay;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event_list);
-		
+
 		Intent intent = getIntent();
 		thisDay = intent.getExtras().getParcelable("Day");
 		eventList = thisDay.getEvents();
-		
+
 		final ListView eventsEntryListView = (ListView)findViewById(R.id.event_list);
 		final EventEntryAdapter eventEntryAdapter = new EventEntryAdapter (this);
-		
+
 		eventsEntryListView.setAdapter(eventEntryAdapter);
-			
-		
+
+
 		int length = eventList.size();
 		for (int i = 0; i<length;i++)
 		{
@@ -41,15 +41,15 @@ public class EventListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 				//code for handling events here
-		
+
 				runIntent (eventList.get(position));
-				
-				
+
+
 			}
-			
+
 		});
 	}
-	
+
 	private void runIntent(Event event){
 		Intent intent = new Intent (this, DisplayEventActivity.class);
 		intent.putExtra("Event", event);
@@ -67,7 +67,7 @@ public class EventListActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			Intent intent = new Intent (this, DayListActivity.class);
+			Intent intent = new Intent (this, ScheduleSwipeActivity.class);
 			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){

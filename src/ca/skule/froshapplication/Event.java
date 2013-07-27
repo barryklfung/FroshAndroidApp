@@ -25,9 +25,7 @@ public class Event implements Parcelable {
 		out.writeString(details);
 		out.writeString(time);
 		out.writeString(name);
-		out.writeInt(location.getCoordX());
-		out.writeInt(location.getCoordY());
-		out.writeString(location.getLocationName());
+		out.writeString(location.getShortName());
 	}
 	public static final Parcelable.Creator<Event> CREATOR = new Parcelable.Creator<Event>(){
 		public Event createFromParcel (Parcel in){
@@ -43,10 +41,8 @@ public class Event implements Parcelable {
 		details = in.readString();
 		time = in.readString();
 		name = in.readString();
-		int coordX = in.readInt();
-		int coordY = in.readInt();
-		String locationName = in.readString();
-		this.location = new Location (coordX, coordY, locationName);	
+		String sLocationName = in.readString();
+		this.location = new Location (sLocationName);	
 	}
 	
 	

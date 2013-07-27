@@ -14,32 +14,32 @@ import android.view.View.OnClickListener;
 public class DisplayEventActivity extends Activity {
 
 	private Event thisEvent = new Event();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_event);
-		
+
 		Button button = (Button)findViewById(R.id.mapButton);
-		
-		
+
+
 		Intent intent = getIntent();
 		thisEvent = intent.getExtras().getParcelable("Event");
-		
+
 		TextView title = (TextView)(findViewById(R.id.eventTitle));
 		title.setText(thisEvent.getName());
 		TextView time = (TextView)(findViewById(R.id.eventTime));
 		time.setText(thisEvent.getTime());
 		TextView details = (TextView)(findViewById(R.id.eventDetails));
 		details.setText(thisEvent.getDetails());
-		
+
 		button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick (View view){
 				runIntent();
 			}
 		});
-		
+
 	}
 	private void runIntent (){
 		Intent intent = new Intent (this, MapActivity.class);
@@ -58,7 +58,7 @@ public class DisplayEventActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			Intent intent = new Intent (this, DayListActivity.class);
+			Intent intent = new Intent (this, ScheduleSwipeActivity.class);
 			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){

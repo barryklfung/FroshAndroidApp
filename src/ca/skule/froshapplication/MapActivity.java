@@ -58,17 +58,17 @@ public class MapActivity extends Activity {
 						.position(markerLocation)
 						.title(locationMarker.getLocationName())
 						.snippet("aka. " + locationMarker.getShortName()));
-						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocation, 6));
-						if (!new File(getExternalCacheDir(), "cache_vts_ca.skule.froshapplication.0").exists())
+						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocation, 16));
+						/*if (!new File(getExternalCacheDir(), "cache_vts_ca.skule.froshapplication.0").exists())
 						{
 							Log.d("Searching Cache","THE FILE DOES NOT EXIST");
 							onlineAccess=false;
-						}
+						}*/
 
 					}
 				}
 				else{
-					mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 6));
+					mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 16));
 				}
 			}
 		}
@@ -97,7 +97,7 @@ public class MapActivity extends Activity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("schedule")){
-			Intent intent = new Intent (this, DayListActivity.class);
+			Intent intent = new Intent (this, ScheduleSwipeActivity.class);
 			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("map")){
