@@ -11,11 +11,11 @@
           android:onClick="onMenuClick" />
      <item android:id="@+id/ftips"
           android:title="@string/title_activity_ftips"
-          android:showAsAction="ifRoom|withText|collapseActionView"
+          android:showAsAction="ifRoom|withText"
           android:onClick="onMenuClick" />
      <item android:id="@+id/settings"
           android:title="@string/title_settings_activity"
-          android:showAsAction="ifRoom|withText|collapseActionView"
+          android:showAsAction="ifRoom|withText"
           android:onClick="onMenuClick" />
 
 </menu>

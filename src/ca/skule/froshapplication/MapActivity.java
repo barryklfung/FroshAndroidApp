@@ -34,9 +34,8 @@ public class MapActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_map);
 		Bundle extras = getIntent().getExtras(); 
-		onlineAccess=isNetworkAvailable();
+		//onlineAccess=isNetworkAvailable();
 		String locationName = null;
 
 		if (extras!=null)
@@ -45,35 +44,6 @@ public class MapActivity extends Activity {
 			locationMarker=new Location(locationName);
 		}
 
-		if (mMap == null) {
-			mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-					.getMap();
-			// Check if we were successful in obtaining the map.
-			if (mMap != null) {
-				if (locationMarker!=null)
-				{
-					if (!locationMarker.getLocationName().equals("Unknown Location")&&!locationMarker.getLocationName().equals("uninitialized"))
-					{
-
-						LatLng markerLocation = locationMarker.getLatLng();
-						Marker marker = mMap.addMarker(new MarkerOptions()
-						.position(markerLocation)
-						.title(locationMarker.getLocationName())
-						.snippet("aka. " + locationMarker.getShortName()));
-						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocation, 16));
-
-					}
-				}
-				else{
-					mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 16));
-				}
-			}
-			else
-			{
-				onlineAccess=false;
-			}
-		}
-		
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 		onlineAccess = sharedPref.getBoolean(SettingsActivity.KEY_PREF_ONLINE, false);
 
@@ -85,6 +55,48 @@ public class MapActivity extends Activity {
 				intent.putExtra("Location", locationName);
 			}
 			startActivity(intent);
+		}
+		else{
+			setContentView(R.layout.activity_map);
+
+			if (mMap == null) {
+				mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+						.getMap();
+				// Check if we were successful in obtaining the map.
+				if (mMap != null) {
+					if (locationMarker!=null)
+					{
+						if (!locationMarker.getLocationName().equals("Unknown Location")&&!locationMarker.getLocationName().equals("uninitialized"))
+						{
+
+							LatLng markerLocation = locationMarker.getLatLng();
+							Marker marker = mMap.addMarker(new MarkerOptions()
+							.position(markerLocation)
+							.title(locationMarker.getLocationName())
+							.snippet("aka. " + locationMarker.getShortName()));
+							mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocation, 16));
+
+						}
+					}
+					else{
+						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 16));
+					}
+				}
+				else
+				{
+					onlineAccess=false;
+				}
+			}
+
+			if (!onlineAccess)
+			{
+				Intent intent = new Intent (this,MapActivity2.class);
+				if (locationName != null && !locationName.isEmpty())
+				{
+					intent.putExtra("Location", locationName);
+				}
+				startActivity(intent);
+			}
 		}
 	}
 

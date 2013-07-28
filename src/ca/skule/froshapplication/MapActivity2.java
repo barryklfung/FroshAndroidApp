@@ -29,7 +29,7 @@ public class MapActivity2 extends Activity {
 		{
 			if (!locationMarker.getLocationName().equals("Unknown Location")&&!locationMarker.getLocationName().equals("uninitialized"))
 			{
-			mMapView=(MapView)(findViewById(R.id.map2));
+			mMapView=(MapView)(findViewById(R.id.map_offline));
 			mMapView.setMarker(locationMarker);
 			mMapView.changeCameraPosition(locationMarker.getCoordX(), locationMarker.getCoordY());
 			}
