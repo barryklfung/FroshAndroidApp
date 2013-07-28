@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -28,6 +29,7 @@ public class ScheduleSwipeActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule_swipe);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
@@ -55,6 +57,10 @@ public class ScheduleSwipeActivity extends FragmentActivity {
 		}
 		else if (id.equalsIgnoreCase("F! Tips")){
 			Intent intent = new Intent (this, FTipListActivity.class);
+			startActivity(intent);
+		}
+		else if (id.equalsIgnoreCase("Settings")){
+			Intent intent = new Intent (this, SettingsActivity.class);
 			startActivity(intent);
 		}
 	}

@@ -13,10 +13,12 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -59,11 +61,6 @@ public class MapActivity extends Activity {
 						.title(locationMarker.getLocationName())
 						.snippet("aka. " + locationMarker.getShortName()));
 						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocation, 16));
-						/*if (!new File(getExternalCacheDir(), "cache_vts_ca.skule.froshapplication.0").exists())
-						{
-							Log.d("Searching Cache","THE FILE DOES NOT EXIST");
-							onlineAccess=false;
-						}*/
 
 					}
 				}
@@ -71,7 +68,14 @@ public class MapActivity extends Activity {
 					mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 16));
 				}
 			}
+			else
+			{
+				onlineAccess=false;
+			}
 		}
+		
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+		onlineAccess = sharedPref.getBoolean(SettingsActivity.KEY_PREF_ONLINE, false);
 
 		if (!onlineAccess)
 		{

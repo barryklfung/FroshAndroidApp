@@ -67,7 +67,7 @@ public class FTipDetailActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.ftip, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		getActionBar().setDisplayShowTitleEnabled(false);
 		return true;
 	}
@@ -76,14 +76,11 @@ public class FTipDetailActivity extends FragmentActivity {
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			//don't do anything cause you're already at schedule
+			Intent intent = new Intent (this, ScheduleSwipeActivity.class);
+			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){
 			Intent intent = new Intent (this, MapActivity.class);
-			startActivity(intent);
-		}
-		else if (id.equalsIgnoreCase("F! Tips")){
-			Intent intent = new Intent (this, FTipListActivity.class);
 			startActivity(intent);
 		}
 	}

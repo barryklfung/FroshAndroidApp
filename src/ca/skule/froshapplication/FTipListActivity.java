@@ -88,10 +88,18 @@ public class FTipListActivity extends FragmentActivity implements
 	public void onMenuClick (MenuItem Item){
 		String id = Item.getTitle().toString();
 		if (id.equalsIgnoreCase("Schedule")){
-			//don't do anything cause you're already at schedule
+			Intent intent = new Intent (this, ScheduleSwipeActivity.class);
+			startActivity (intent);
 		}
 		else if (id.equalsIgnoreCase("Map")){
 			Intent intent = new Intent (this, MapActivity.class);
+			startActivity(intent);
+		}
+		else if (id.equalsIgnoreCase("F! Tips")){
+			//don't do anything
+		}
+		else if (id.equalsIgnoreCase("Settings")){
+			Intent intent = new Intent (this, SettingsActivity.class);
 			startActivity(intent);
 		}
 	}

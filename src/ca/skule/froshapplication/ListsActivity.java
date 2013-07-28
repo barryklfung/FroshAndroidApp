@@ -80,7 +80,7 @@ private ListView lists;
 		    			adb.show();*/
 		    	//Sending Coordinate Data.
 		    	Intent intent = new Intent (v.getContext(), MapActivity.class);
-				intent.putExtra("Location", new Location(ListsActivity.CodeMap.get(lists.getItemAtPosition(pos))));
+				intent.putExtra("Location", ListsActivity.CodeMap.get(lists.getItemAtPosition(pos)));
 				//Testing Intent content
 				/*AlertDialog.Builder adb = new AlertDialog.Builder(
 		    			ListsActivity.this);

@@ -5,14 +5,17 @@
         android:showAsAction="ifRoom|withText"
         android:title="@string/schedule"
         android:onClick="onMenuClick"/>
-    	
      <item android:id="@+id/map"
           android:title="@string/map"
           android:showAsAction="ifRoom|withText"
           android:onClick="onMenuClick" />
      <item android:id="@+id/ftips"
           android:title="@string/title_activity_ftips"
-          android:showAsAction="ifRoom|withText"
+          android:showAsAction="ifRoom|withText|collapseActionView"
+          android:onClick="onMenuClick" />
+     <item android:id="@+id/settings"
+          android:title="@string/title_settings_activity"
+          android:showAsAction="ifRoom|withText|collapseActionView"
           android:onClick="onMenuClick" />
 
 </menu>

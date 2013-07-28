@@ -1,29 +1,34 @@
 package ca.skule.froshapplication;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends Activity {
-
+public class SettingsActivity extends Activity {
+	
+	public static final String KEY_PREF_ONLINE = "online_mode";
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-	}
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+        // Display the fragment as the main content.
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new SettingsFragment())
+                .commit();
+    }
+	
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		getActionBar().setDisplayShowTitleEnabled(false);
+
 		return true;
 	}
 
@@ -37,11 +42,5 @@ public class MainActivity extends Activity {
 			Intent intent = new Intent (this, MapActivity.class);
 			startActivity(intent);
 		}
-		else if (id.equalsIgnoreCase("locations")){
-			// Point to Building List Activity
-			Intent intent = new Intent (this,ListsActivity.class);
-			startActivity(intent);
-		}
 	}
 }
-

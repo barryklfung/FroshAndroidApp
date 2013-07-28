@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <SwitchPreference
+        android:key="online_mode"
+        android:title="@string/internet_access"
+        android:summaryOff="@string/offline_mode"
+        android:summaryOn="@string/online_mode"
+        android:switchTextOff="@string/offline_mode"
+        android:switchTextOn="@string/online_mode"
+        android:defaultValue="true" />
+</PreferenceScreen>

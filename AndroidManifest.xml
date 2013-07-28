@@ -101,7 +101,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FTipListActivity" />
         </activity>
-
+        <activity
+            android:name="ca.skule.froshapplication.SettingsActivity"
+            android:label="@string/title_settings_activity" >
+        </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDN16iXacYIqZciuUHFZnGTfZqrAG-gw1A" />
