@@ -60,17 +60,25 @@ public class DisplayEventActivity extends Activity {
 	}
 	
 	private void runLocalNotiIntent (){	        
-	        Intent notificationIntent = 
-	            new Intent(DisplayEventActivity.this, NotificationService.class);
+	        Intent notificationIntent = new Intent(DisplayEventActivity.this, NotificationService.class);
 	        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-	        PendingIntent contentIntent = 
-	            PendingIntent.getService(this, 0, notificationIntent, 0);
+	        PendingIntent contentIntent = PendingIntent.getService(this, 0, notificationIntent, 0);
 	        Calendar calendar = Calendar.getInstance();
-	           calendar.set(Calendar.HOUR_OF_DAY, 16);
-	       calendar.set(Calendar.MINUTE, 41);
-	       calendar.set(Calendar.SECOND, 00);
+	        
+	        String startTime = thisEvent.getTime();
+	        String[] time = startTime.split("-");
+	        startTime = time[0];
+	        startTime = startTime.replace("AM", "");
+	        startTime = startTime.replace("PM", "");
+	        String[] divs = startTime.split(":");
+	        int hour = Integer.parseInt(divs[0]);
+	        int minute = Integer.parseInt(divs[1]);
+	        
+	        calendar.set(Calendar.HOUR_OF_DAY, hour);
+	        calendar.set(Calendar.MINUTE, minute);
+	        calendar.set(Calendar.SECOND, 00);
 	       
-	       alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), contentIntent);  //set repeating every 24 hours
+	        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), contentIntent);  //set repeating every 24 hours
 	}
 	
 	
