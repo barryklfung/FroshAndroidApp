@@ -23,8 +23,8 @@
         android:id="@+id/lblUpdate"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="#fweek"
-        android:textSize="40sp"
+        android:text="#F!week"
+        android:textSize="24sp"
         android:visibility="gone" />
 
     <ListView
@@ -61,17 +61,5 @@
             android:text="Tweet"
             android:visibility="gone" />
     </LinearLayout>
-
-    <!-- Twitter Logout button -->
-
-    <Button
-        android:id="@+id/btnLogoutTwitter"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:layout_marginTop="10dip"
-        android:text="Logout from Twitter"
-        android:visibility="gone" />
 
 </LinearLayout>

@@ -62,8 +62,6 @@ public class TwitterFragment extends Fragment{
 	Button btnLoginTwitter;
 	// Update status button
 	Button btnUpdateStatus;
-	// Logout button
-	Button btnLogoutTwitter;
 	// EditText for update
 	EditText txtUpdate;
 	// lbl update
@@ -109,7 +107,6 @@ public class TwitterFragment extends Fragment{
 		btnLoginTwitter = (Button) getActivity().findViewById(R.id.btnLoginTwitter);
 		txtUpdate = (EditText) getActivity().findViewById(R.id.txtUpdateStatus);
 		btnUpdateStatus = (Button) getActivity().findViewById(R.id.btnUpdateStatus);
-		btnLogoutTwitter = (Button) getActivity().findViewById(R.id.btnLogoutTwitter);
 		lblUpdate = (TextView) getActivity().findViewById(R.id.lblUpdate);
 		recentTweets = (ListView) getActivity().findViewById(R.id.Tweets);
 
@@ -145,28 +142,19 @@ public class TwitterFragment extends Fragment{
 					// update status
 					if (!status.contains("#Fweek")&&!status.contains("#fweek"))
 					{
-						status.concat(" #Fweek");
+						txtUpdate.append(" #Fweek");
+						status=status.concat(" #Fweek");
+						System.out.println(status);
 					}
 					
 					new updateTwitterStatus().execute(status);
+					loadData();
 				} else {
 					// EditText is empty
 					Toast.makeText(getActivity().getApplicationContext(),
 							"Please enter status message", Toast.LENGTH_SHORT)
 							.show();
 				}
-			}
-		});
-
-		/**
-		 * Button click event for logout from twitter
-		 * */
-		btnLogoutTwitter.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// Call logout twitter function
-				logoutFromTwitter();
 			}
 		});
 
@@ -219,7 +207,6 @@ public class TwitterFragment extends Fragment{
 				lblUpdate.setVisibility(View.VISIBLE);
 				txtUpdate.setVisibility(View.VISIBLE);
 				btnUpdateStatus.setVisibility(View.VISIBLE);
-				btnLogoutTwitter.setVisibility(View.VISIBLE);
 				recentTweets.setVisibility(View.VISIBLE);
 				loadData();
 				
@@ -272,15 +259,15 @@ public class TwitterFragment extends Fragment{
 		
 		// Check if already logged in
 		if (!isTwitterLoggedInAlready()) {
-			//ConfigurationBuilder builder = new ConfigurationBuilder();
-			///builder.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
-			//builder.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
-			//Configuration configuration = builder.build();
+			ConfigurationBuilder builder = new ConfigurationBuilder();
+			builder.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
+			builder.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
+			Configuration configuration = builder.build();
 
-			//TwitterFactory factory = new TwitterFactory(configuration);
-			TwitterFactory factory = new TwitterFactory();
+			TwitterFactory factory = new TwitterFactory(configuration);
+			//TwitterFactory factory = new TwitterFactory();
 			twitter = factory.getInstance();
-			twitter.setOAuthConsumer(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET);
+			//twitter.setOAuthConsumer(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET);
 
 			if(!(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)) {
 				try {
@@ -305,9 +292,15 @@ public class TwitterFragment extends Fragment{
 				}).start();
 			}
 		} else {
-			// user already logged into twitter
-			Toast.makeText(getActivity().getApplicationContext(),
-					"Already Logged into twitter", Toast.LENGTH_LONG).show();
+			// Hide login button
+			btnLoginTwitter.setVisibility(View.GONE);
+
+			// Show Update Twitter
+			lblUpdate.setVisibility(View.VISIBLE);
+			txtUpdate.setVisibility(View.VISIBLE);
+			btnUpdateStatus.setVisibility(View.VISIBLE);
+			recentTweets.setVisibility(View.VISIBLE);
+			loadData();
 		}
 	}
 
@@ -322,18 +315,13 @@ public class TwitterFragment extends Fragment{
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(getActivity());
-			pDialog.setMessage("Updating to twitter...");
-			pDialog.setIndeterminate(false);
-			pDialog.setCancelable(false);
-			pDialog.show();
 		}
 
 		/**
 		 * getting Places JSON
+		 * @return 
 		 * */
 		protected String doInBackground(String... args) {
-			Log.d("Tweet Text", "> " + args[0]);
 			String status = args[0];
 			try {
 				ConfigurationBuilder builder = new ConfigurationBuilder();
@@ -352,6 +340,7 @@ public class TwitterFragment extends Fragment{
 				twitter4j.Status response = twitter1.updateStatus(status);
 
 				Log.d("Status", "> " + response.getText());
+				return status;
 			} catch (TwitterException e) {
 				// Error in updating status
 				Log.d("Twitter Update Error", e.getMessage());
@@ -364,9 +353,8 @@ public class TwitterFragment extends Fragment{
 		 * the data in UI Always use runOnUiThread(new Runnable()) to update UI
 		 * from background thread, otherwise you will get error
 		 * **/
-		protected void onPostExecute(String file_url) {
+		protected void onPostExecute() {
 			// dismiss the dialog after getting all products
-			pDialog.dismiss();
 			Toast.makeText(getActivity().getApplicationContext(),
 					"Status tweeted successfully", Toast.LENGTH_SHORT)
 					.show();
@@ -383,11 +371,12 @@ public class TwitterFragment extends Fragment{
 			@Override
 			protected void onPreExecute() {
 				super.onPreExecute();
-				pDialog = new ProgressDialog(getActivity());
-				pDialog.setMessage("Updating to twitter...");
-				pDialog.setIndeterminate(false);
-				pDialog.setCancelable(false);
-				pDialog.show();
+				pDialog = ProgressDialog.show(getActivity(),"Retrieving Tweets", "Please wait"); 
+				//pDialog = new ProgressDialog(getActivity());
+				//pDialog.setMessage("Retrieving Tweets");
+				//pDialog.setIndeterminate(false);
+				//pDialog.setCancelable(false);
+				//pDialog.show();
 			}
 
 			@Override
@@ -406,7 +395,7 @@ public class TwitterFragment extends Fragment{
 				Twitter twitter = new TwitterFactory(builder.build()).getInstance(accessToken);
 				
 		        try {
-		            Query query = new Query("#FroshWeek");
+		            Query query = new Query("#FWeek");
 		            QueryResult result;
 		            result = twitter.search(query);
 		            tweetsList= result.getTweets();
@@ -451,7 +440,6 @@ public class TwitterFragment extends Fragment{
 		// After this take the appropriate action
 		// I am showing the hiding/showing buttons again
 		// You might not needed this code
-		btnLogoutTwitter.setVisibility(View.GONE);
 		btnUpdateStatus.setVisibility(View.GONE);
 		txtUpdate.setVisibility(View.GONE);
 		lblUpdate.setVisibility(View.GONE);
