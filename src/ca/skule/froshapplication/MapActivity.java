@@ -82,11 +82,11 @@ public class MapActivity extends Activity {
 						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT, 16));
 					}
 				}
-				else
-				{
-					onlineAccess=false;
-				}
+
 			}
+			
+			ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
+			onlineAccess=cd.isConnectingToInternet();
 
 			if (!onlineAccess)
 			{
@@ -124,12 +124,10 @@ public class MapActivity extends Activity {
 			Intent intent = new Intent (this,ListsActivity.class);
 			startActivity(intent);
 		}
-	}
-
-	private boolean isNetworkAvailable() {
-		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+		else if (id.equalsIgnoreCase("Settings")){
+			Intent intent = new Intent (this, SettingsActivity.class);
+			startActivity(intent);
+		}
 	}
 }
 

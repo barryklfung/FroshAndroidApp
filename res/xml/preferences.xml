@@ -5,7 +5,5 @@
         android:title="@string/internet_access"
         android:summaryOff="@string/offline_mode"
         android:summaryOn="@string/online_mode"
-        android:switchTextOff="@string/offline_mode"
-        android:switchTextOn="@string/online_mode"
         android:defaultValue="true" />
 </PreferenceScreen>

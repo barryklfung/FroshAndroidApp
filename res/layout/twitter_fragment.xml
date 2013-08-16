@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Twitter Login Button -->
+
+    <Button
+        android:id="@+id/btnLoginTwitter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:text="Tweet about #Fweek"
+        android:drawableLeft="@drawable/twitter_logo" />
+
+    <!-- label update status -->
+
+    <TextView
+        android:id="@+id/lblUpdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="#fweek"
+        android:textSize="40sp"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/Tweets"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true"
+        android:drawSelectorOnTop="false"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <!-- Tweet EditText -->
+
+        <EditText
+            android:id="@+id/txtUpdateStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:layout_weight="1"
+            android:hint="Tweet about #Fweek!"
+            android:visibility="gone" />
+
+        <!-- Tweet Button -->
+
+        <Button
+            android:id="@+id/btnUpdateStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tweet"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Twitter Logout button -->
+
+    <Button
+        android:id="@+id/btnLogoutTwitter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:text="Logout from Twitter"
+        android:visibility="gone" />
+
+</LinearLayout>

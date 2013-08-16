@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MapActivity2 extends Activity {
 
@@ -34,6 +35,8 @@ public class MapActivity2 extends Activity {
 			mMapView.changeCameraPosition(locationMarker.getCoordX(), locationMarker.getCoordY());
 			}
 		}
+		
+		Toast.makeText(getApplicationContext(), "Offline mode", Toast.LENGTH_SHORT).show();
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -58,6 +61,10 @@ public class MapActivity2 extends Activity {
 		else if (id.equalsIgnoreCase("locations")){
 			// Point to Building List Activity
 			Intent intent = new Intent (this,ListsActivity.class);
+			startActivity(intent);
+		}
+		else if (id.equalsIgnoreCase("Settings")){
+			Intent intent = new Intent (this, SettingsActivity.class);
 			startActivity(intent);
 		}
 	}

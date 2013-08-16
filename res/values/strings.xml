@@ -22,4 +22,5 @@
     <string name="online_mode">Online mode</string>
     <string name="offline_mode">Offline mode</string>
     <string name="title_settings_activity">Settings</string>
+    <string name="twitter_logout">Logout from Twitter</string>
 </resources>
