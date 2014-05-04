@@ -112,9 +112,11 @@
             android:name="ca.skule.froshapplication.SettingsActivity"
             android:label="@string/title_settings_activity" >
         </activity>
+        <meta-data android:name="com.google.android.gms.version"
+           android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDN16iXacYIqZciuUHFZnGTfZqrAG-gw1A" />
+            android:value="AIzaSyDvziZ2YwSfZg79Uzuw9T-I3AUiok1B3yU" />
     </application>
 
 </manifest>

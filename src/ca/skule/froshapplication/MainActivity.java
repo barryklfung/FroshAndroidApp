@@ -1,5 +1,8 @@
 package ca.skule.froshapplication;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -16,6 +19,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		
+		Calendar c = Calendar.getInstance();
+		System.out.println(c.get(Calendar.HOUR_OF_DAY));
+		System.out.println(c.get(Calendar.DAY_OF_MONTH));
+		
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
